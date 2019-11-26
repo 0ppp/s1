@@ -1,0 +1,32 @@
+>mongo 
+>show dbs
+>use department
+>db.createCollection('student')
+
+db.student.insert({name:"Abhi",course:[{coursename:"bcs"},{coursename:"bvoc"}],marks:80,age:21,gender:"male",city:"pune"})
+
+
+db.student.insert({name:"mukesh",course:[{coursename:"bcs"},{coursename:"bvoc"}],marks:60,age:22,gender:"male",city:"pune"})
+
+db.student.insert({name:"manisha",course:[{coursename:"mcs"},{coursename:"bvoc"}],marks:90,age:22,gender:"female",city:"mumbai"})
+
+db.student.insert({name:"manasi",course:[{coursename:"mcs"},{coursename:"bvoc"}],marks:92,age:22,gender:"female",city:"latur"})
+
+
+db.student.insert({name:"apurva",course:[{coursename:"mcs"},{coursename:"bvoc"}],marks:37,age:22,gender:"female",city:"sasvad"})
+
+
+db.student.insert({name:"arati",course:[{coursename:"mcs"},{coursename:"bvoc"}],marks:32,age:22,gender:"female",city:"bekarai"})
+
+
+a) > 
+db.student.count({marks:{$gt:80}})
+
+b) >
+ db.student.find({marks:{$lt:40}})
+
+c) > 
+var my=db.student.find({marks:{$gt:70}});while(my.hasNext()){print(tojson(my.next()));}
+
+d)>
+db.student.find({gender:"female",$or:[{city:"pune"},{city:"mumbai"},{marks:{$lt:50}}]})
